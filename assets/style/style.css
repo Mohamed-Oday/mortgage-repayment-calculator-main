@@ -16,12 +16,31 @@
     border: 2px solid #d8db31;
     border-right: none;
     background-color: #d9db31;
+    color: #1d3415;
 }
+
+.input-icon.focus:hover{
+    border: 2px solid #d8db31;
+    border-right: none;
+    background-color: #d9db31;
+    color: #1d3415;
+}
+
+.input-icon.focused:hover{
+    border: 2px solid #d8db31;
+    border-left: none;
+    background-color: #d9db31;
+    color: #1d3415;
+}
+
+
 
 .input-icon.focused{
     border: 2px solid #d8db31;
     border-left: none;
     background-color: #d9db31;
+    color: #1d3415;
+    font-weight: 700;
 }
 
 .input-field.hover{

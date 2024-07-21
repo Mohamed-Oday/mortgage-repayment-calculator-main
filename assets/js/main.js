@@ -5,54 +5,70 @@ document.addEventListener('DOMContentLoaded', () => {
     inputContainer.forEach(container => {
         const numberInput = container.querySelector('.input-field');
         const icon = container.querySelector('.input-icon');
-
+        let isFocused = false;
+    
         numberInput.addEventListener('mouseover', () => {
-            if (icon.classList.contains('left')){
-                icon.classList.add('hoverd');
-            } else {
-                icon.classList.add('hovered');
-            }  
+            if (!isFocused) {
+                if (icon.classList.contains('left')) {
+                    icon.classList.add('hoverd');
+                } else {
+                    icon.classList.add('hovered');
+                }
+            }
         });
-
+    
         numberInput.addEventListener('mouseout', () => {
-            if (icon.classList.contains('left')){
+            if (icon.classList.contains('left')) {
                 icon.classList.remove('hoverd');
             } else {
                 icon.classList.remove('hovered');
             }
         });
-
+    
         numberInput.addEventListener('focus', () => {
-            if (icon.classList.contains('left')){
+            isFocused = true;
+            if (icon.classList.contains('left')) {
                 icon.classList.add('focus');
             } else {
                 icon.classList.add('focused');
             }
         });
-
+    
         numberInput.addEventListener('blur', () => {
-            if (icon.classList.contains('left')){
+            isFocused = false;
+            if (icon.classList.contains('left')) {
                 icon.classList.remove('focus');
             } else {
                 icon.classList.remove('focused');
             }
         });
-
+    
         icon.addEventListener('mouseover', () => {
-            if (icon.classList.contains('left')){
-                numberInput.classList.add('hover');
-            } else {
-                numberInput.classList.add('hovered');
+            if (!isFocused) {
+                if (icon.classList.contains('left')) {
+                    numberInput.classList.add('hover');
+                } else {
+                    numberInput.classList.add('hovered');
+                }
             }
         });
-
+    
         icon.addEventListener('mouseout', () => {
-            if (icon.classList.contains('left')){
+            if (icon.classList.contains('left')) {
                 numberInput.classList.remove('hover');
             } else {
                 numberInput.classList.remove('hovered');
             }
         });
+
+        icon.addEventListener('click', () => {
+            if (icon.classList.contains('left')){
+                icon.classList.add('focus');
+            } else {
+                icon.classList.add('focused');
+            }
+            numberInput.focus();
+        })
     });
 
     radioContainer.forEach(container => {
@@ -125,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Display results
         document.querySelector('.empty').classList.add('hidden');
         document.querySelector('.full').classList.remove('hidden');
-        document.getElementById('monthlyPay').innerText = `$${monthlyPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        document.getElementById('totalPay').innerText = `$${(monthlyPayment * numberOfPayments).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById('monthlyPay').innerText = `£${monthlyPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById('totalPay').innerText = `£${(monthlyPayment * numberOfPayments).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     });
 
     document.getElementById('reset').addEventListener('click', () => {
