@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <!-- Title -->
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+    <!-- TailWind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">   
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style/style.css"> 
+</head>
+<body class="bg-[#e3f4fc] min-h-screen flex flex-col items-center justify-center md:h-screen">
+    <main class="bg-white flex md:flex-row flex-col items-start justify-center mx-auto w-full md:max-w-[1010px] md:max-h-[607px] md:rounded-2xl overflow-hidden">
+        <!-- Information Section -->
+        <div class="w-full pb-[30px] md:w-[50%] md:p-[40px] p-[1em] ">
+            <!-- Title and Clear Button -->
+            <div class="flex flex-col items-start justify-start pb-[20px] md:flex-row md:items-center md:justify-between">
+                <h1 class="text-[#112129] font-[700] text-[16px] mb-[5px] md:text-[18px]">Mortgage Calculator</h1>
+                <button id="reset" class="text-[#616a71] text-[12px] underline md:text-[13px]">Clear All</button>
+            </div>
+            <!-- Form Section -->
+            <form action="#" method="post" id="form" class="flex flex-col w-full">
+                <div class="w-full">
+                    <!-- Amount Section -->
+                    <div class="w-full pb-[20px] input-container">
+                        <div class="pb-[5px]">
+                            <label for="mortgage-amount" class="text-[#5d7276] text-[13px] font-[500] md:text-[16px]">Mortgage Amount</label>
+                        </div>
+                        <div class="w-full flex flex-row items-center justify-between">
+                            <span class="left input-icon text-[#5a757e] font-[700] text-[14px] border-[2px] py-[4px] px-[10px] border-r-0 border-[#939ba0] bg-[#e3f4fe] rounded-[5px] rounded-r-none md:py-[10px] md:px-[15px] md:text-[16px] hover:border-r-0 hover:border-[#1d3037] cursor-default">$</span>
+                            <input type="text" id="mortgage-amount" name="mortgage-amount" min="0" class="w-full border-[2px] border-[#939ba0] border-l-0 p-[4px] rounded-[5px] rounded-l-none px-[10px] text-[#1d3037] font-[700] text-[14px] focus:outline-none focus:border-[#d8db31] md:p-[10px] hover:border-[#303a3b] md:text-[16px] input-field">
+                        </div>
+                        <div class="error-amount hidden pt-[10px]">
+                            <p class="text-[12px] font-[600] text-[#d7322c] md:text-[13px]">This field is required</p>
+                        </div>
+                    </div>   
+                    <div class="md:flex md:flex-row pb-[20px] md:justify-between md:pb-[5px]">
+                        <div class="pb-[20px] md:w-[200px] input-container">
+                            <div class="pb-[5px]">
+                                <label for="years" class="text-[#5d7276] text-[13px] font-[500] md:text-[16px]">Mortgage Term</label>
+                            </div>
+                            <div class="w-full flex flex-row items-center justify-between">
+                                <input type="number" id="years" name="years" min="0" class="w-full border-[2px] border-[#939ba0] border-r-0 p-[4px] rounded-[3px] rounded-r-none px-[10px] text-[#1d3037] font-[700] text-[14px] focus:outline-none focus:border-[#d8db31] md:p-[10px] hover:border-[#303a3b] md:text-[16px] input-field">
+                                <span class="input-icon text-[#5a757e] font-[700] text-[12px] border-[2px] py-[5.5px] px-[10px] border-l-0 border-[#939ba0] bg-[#e3f4fe] rounded-[3px] rounded-l-none md:py-[10px] md:px-[15px] md:text-[16px] hover:border-l-0 hover:border-[#1d3037] cursor-default">years</span>
+                            </div>
+                            <div class="error-years hidden pt-[10px]">
+                                <p class="text-[12px] font-[600] text-[#d7322c] md:text-[13px]">This field is required</p>
+                            </div>
+                        </div>
+                        <div class="md:w-[200px] input-container">
+                            <div class="pb-[5px]">
+                                <label for="rate" class="text-[#5d7276] text-[13px] font-[500] md:text-[16px]">Interest Rate</label>
+                            </div>
+                            <div class="w-full flex flex-row items-center justify-between">
+                                <input type="text" id="rate" name="rate" min="0" class="w-full border-[2px] border-[#939ba0] border-r-0 p-[4px] rounded-[3px] rounded-r-none px-[10px] text-[#1d3037] font-[700] text-[14px] focus:outline-none focus:border-[#d8db31] md:p-[10px] hover:border-[#303a3b] md:text-[16px] input-field">
+                                <span class="input-icon text-[#5a757e] font-[700] text-[14px] border-[2px] py-[4px] px-[10px] border-l-0 border-[#939ba0] bg-[#e3f4fe] rounded-[3px] rounded-l-none md:py-[10px] md:px-[15px] md:text-[16px] hover:border-l-0 hover:border-[#1d3037] cursor-default">%</span>
+                            </div>
+                            <div class="error-rate hidden pt-[10px]">
+                                <p class="text-[12px] font-[600] text-[#d7322c] md:text-[13px]">This field is required</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mortgage Type -->
+                <div class="pb-[20px]">
+                    <div class="pb-[5px]">
+                        <label for="" class="text-[#616a71] text-[13px] font-[500] md:text-[16px]">Mortgage Type</label>
+                    </div>
+                    <div>
+                        <div class="pb-[10px]">
+                            <div class="radio-container py-[8px] px-[10px] rounded-[4px] border-[#939ba0] border-[2px] cursor-pointer hover:border-[#d8db31] flex flex-row items-center md:py-[10px]">
+                                <span class="custom-radio relative w-[20px] h-[20px] rounded-full border-[2px] border-[#ccc] transition-all"></span>
+                                <input type="radio" name="mortgage-type" id="repayment" class="radio">
+                                <div class="inline pl-[8px] md:pl-[14px]">
+                                    <label for="repayment" class="text-[#3f5153] font-[700]">Repayment</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="radio-container py-[8px] px-[10px] rounded-[6px] border-[#939ba0] border-[2px] cursor-pointer flex flex-row items-center hover:border-[#d8db31] md:py-[10px]">
+                                <span class="custom-radio relative p-[2px] w-[20px] h-[20px] rounded-full border-[2px] border-[#ccc] transition-all"></span>
+                                <input type="radio" name="mortgage-type" id="interest-only" class="radio">
+                                <div class="inline pl-[8px] md:pl-[14px]">
+                                    <label for="interest-only" class="text-[#3f5153] font-[700]">Interest Only</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-type hidden pt-[10px]">
+                        <p class="text-[12px] font-[600] text-[#d7322c] md:text-[13px]">This field is required</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-[75%]">
+                    <button id="calculate" type="submit" class="flex flex-col justify-center items-center w-full bg-[#d9db30] rounded-3xl py-[10px] md:py-[14px] md:rounded-3xl  hover:bg-[#ebee97] transition-all">
+                        <div class="flex items-center justify-between">
+                            <img src="assets/images/icon-calculator.svg" alt="#" class="w-[20px] mr-[10px] md:w-[22px]">
+                            <span class="text-[#112129] font-[700] text-[14px] md:text-[16px]">Calculate Repayments</span>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- Empty Section -->
+        <div class="empty hidden w-full bg-[#133040] flex flex-col py-[20px] px-[15px] justify-center items-center md:w-[50%] md:h-[100%] md:rounded-bl-[75px]">
+            <div class="flex flex-col justify-center items-center">
+                <div>
+                    <img src="assets/images/illustration-empty.svg" alt="#">
+                </div>
+                <div>
+                    <h1 class="text-center text-white text-[20px] font-[600] md:text-[24px] md:py-[10px]">Results shown here</h1>
+                    <p class="text-center text-[#597988] text-[12px] md:text-[16px] font-[600] md:mx-[20px]">Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Completed Section -->
+        <div class="full w-full bg-[#133040] flex flex-col py-[15px] px-[15px] justify-start items-center md:w-[50%] md:h-[100%] md:rounded-bl-[75px]">
+            <div class="pb-[20px] md:pb-[30px] px-[15px] md:px-0">
+                <h1 class="text-white text-[20px] font-[600] md:text-[24px] md:mx-[20px] md:pb-[10px] md:text-left md:pt-[20px]">Your results</h1>
+                <p class="text-[#597988] text-[12px] md:text-[16px] font-[600] md:mx-[20px] md:text-left">Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.</p>
+            </div>
+            <div class="w-[90%] bg-[#d2da46] md:h-[50%] relative h-[200px] rounded-lg">
+                <div class="second-color bg-[#0e2431] w-full md:p-[30px] p-[20px] rounded-lg">
+                    <div class="flex flex-col items-start justify-between h-full">
+                        <div class="md:pb-[20px] pb-[5px]">
+                            <p class="text-[#597988] text-[13px] md:text-[14px] font-semibold md:text-left">Your monthly repayments</p>
+                            <h1 id="monthlyPay" class="text-[#d6da33] font-bold md:text-[50px] text-[30px]">$1,675.45</h1>
+                        </div>
+                        <div class="w-full border-t-[1px] border-[#2b414e] md:pb-[20px]"></div>
+                        <div class="">
+                            <p class="text-[#597988] text-[13px] md:text-[14px] font-semibold md:text-left pb-[5px] md:pb-0">Total you'll repay over the term</p>
+                            <p id="totalPay" class="text-white text-[20px] md:text-[22px] font-semibold md:text-left">$543,543.76</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+*{
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.input-icon.hoverd{
+    border: 2px solid #303a3b;
+    border-right: none;
+}
+
+.input-icon.hovered{
+    border: 2px solid #303a3b;
+    border-left: none;
+}
+
+.input-icon.focus{
+    border: 2px solid #d8db31;
+    border-right: none;
+    background-color: #d9db31;
+}
+
+.input-icon.focused{
+    border: 2px solid #d8db31;
+    border-left: none;
+    background-color: #d9db31;
+}
+
+.input-field.hover{
+    border: 2px solid #303a3b;
+    border-left: none;
+}
+
+.input-field.hovered{
+    border: 2px solid #303a3b;
+    border-right: none;
+}
+
+.radio-container.active{
+    background-color: #fafae0;
+    border: 2px solid #d8db31;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.custom-radio.active{  
+    border-color: #d8db31;
+}
+
+.custom-radio.active::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #d7d92d;
+    transform: translate(-50%, -50%);
+}
+
+.second-color{
+    position: absolute;
+    top: 2%;
+    width: 100%;
+    height: 99%;
+    background-color: #0e2431; 
+}
+
+

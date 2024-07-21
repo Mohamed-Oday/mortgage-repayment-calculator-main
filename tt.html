@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* Style the container */
+.container {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #FFF; /* White background for inactive state */
+  border: 2px solid #CCC; /* Gray border for inactive state */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Hide the default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Create a custom radio button */
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #CCC; /* Gray border for inactive state */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Style the checked state */
+input[type="radio"]:checked + .custom-radio {
+  border-color: #FFFF99; /* Yellow border for checked state */
+  background-color: #FFFF99; /* Yellow background for checked state */
+}
+
+input[type="radio"]:checked + .custom-radio::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFFF00; /* Inner yellow circle */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style the container for the checked state */
+input[type="radio"]:checked ~ .container {
+  background-color: #FFFFE0; /* Light yellow background for checked state */
+  border-color: #FFFF99; /* Yellow border for checked state */
+}
+
+/* Style the label text */
+.label-text {
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
+</style>
+</head>
+<body>
+
+<label class="container">
+  <input type="radio" name="example" checked>
+  <span class="custom-radio"></span>
+  <span class="label-text">Repayment</span>
+</label>
+
+<label class="container">
+  <input type="radio" name="example">
+  <span class="custom-radio"></span>
+  <span class="label-text">Option 2</span>
+</label>
+
+</body>
+</html>
